@@ -7,6 +7,12 @@ public class UserBean {
 	private String lastname;
 	private String password;
 	private String mobile;
+	private String loginpassword;
+	private String loginmobile;
+	private boolean msg;
+	
+	
+	
 	/*private String address;
 	private String pincode;
 	private String city;
@@ -42,6 +48,24 @@ public class UserBean {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public String getLoginpassword() {
+		return loginpassword;
+	}
+	public void setLoginpassword(String loginpassword) {
+		this.loginpassword = loginpassword;
+	}
+	public String getLoginmobile() {
+		return loginmobile;
+	}
+	public void setLoginmobile(String loginmobile) {
+		this.loginmobile = loginmobile;
+	}
+	public boolean getMsg() {
+		return msg;
+	}
+	public void setMsg(boolean msg) {
+		this.msg = msg;
 	}
 	
 	

@@ -1,7 +1,9 @@
 package com.practice.app.controller;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +14,6 @@ import com.practice.app.services.RegisterServices;
 
 public class RegisterController extends HttpServlet {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	UserBean userbean;
 	String register_firstname,register_lastname,register_email,register_password,register_mobile,
 	register_pincode,register_address,register_city;
@@ -23,22 +21,24 @@ public class RegisterController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//super.doPost(req, resp);
-	
+		
+		
 		register_firstname=req.getParameter("reg_firstname");
 		register_lastname=req.getParameter("reg_lastname");
 		register_email=req.getParameter("reg_email");
 		register_password=req.getParameter("reg_password");
 		register_mobile=req.getParameter("reg_mobile");
 		
-		/*register_pincode=req.getParameter("pincode");
-		register_address=req.getParameter("address");
-		register_city=req.getParameter("reg_city");*/
+		
+		//Servlet context  
+		//ServletContext context=getServletContext();
+		//String drname=context.getInitParameter("dname");
+		
+	//	resp.getWriter().println(drname);
 		
 		System.out.println(register_firstname);
 	
-		resp.getWriter().write("<html><body>First name is====="+register_firstname+"</body></html>");
+		resp.getWriter().write("<html><body>First name is :- "+register_firstname+"</body></html><br/>");
 	
 		userbean=new UserBean();
 		userbean.setFirstname(register_firstname.trim());
@@ -47,18 +47,15 @@ public class RegisterController extends HttpServlet {
 		userbean.setEmail(register_email.trim());
 		userbean.setMobile(register_mobile.trim());
 		
-		/*		userBean.setAddress(registerAddress);
-		userBean.setCity(registerCity);
-		userBean.setPincode(registerPincode);
-		
-		*/
-		
+				
 		RegisterServices reglogic=new RegisterServices();
 		userbean = reglogic.register_logic(userbean);
 		
 		if (userbean!= null ) {
 			
 			resp.getWriter().write("<html><body>Data Inserted</body></html>");
+			resp.getWriter().write("<html><body>You can login now...</body></html>");
+			req.getRequestDispatcher("login.html").include(req, resp);
 		
 		} else {
 			System.out.println("data not  inserted");
