@@ -1,30 +1,26 @@
 /*
 SQLyog - Free MySQL GUI v5.02
-Host - 5.0.19-nt : Database - ronak
+Host - 5.0.19-nt : Database - roy
 *********************************************************************
 Server version : 5.0.19-nt
 */
 
 
-create database if not exists `ronak`;
+create database if not exists `roy`;
 
-USE `ronak`;
+USE `roy`;
 
-/*Table structure for table `insertdata` */
+/*Table structure for table `patel` */
 
-DROP TABLE IF EXISTS `insertdata`;
+DROP TABLE IF EXISTS `patel`;
 
-CREATE TABLE `insertdata` (
-  `reg_firstname` varchar(50) default NULL,
-  `reg_lastname` varchar(50) default NULL,
-  `reg_password` varchar(50) default NULL,
-  `reg_email` varchar(50) default NULL,
-  `reg_mobile` varchar(50) default NULL
+CREATE TABLE `patel` (
+  `name` varchar(50) default NULL,
+  `password` varchar(50) default NULL,
+  `mobile` varchar(50) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `insertdata` */
+/*Data for the table `patel` */
 
-insert into `insertdata` values 
-('nkb','bjh','bhjbjhb','hvn@fmail.com','0987'),
-('nvnv','gcb','gdfc','hbb@gyh.com','8786'),
-('kjhbjb','bjbb','bmn nm','sds@gmil.com','0i90998');
+insert into `patel` values 
+('world','ia','0988');
